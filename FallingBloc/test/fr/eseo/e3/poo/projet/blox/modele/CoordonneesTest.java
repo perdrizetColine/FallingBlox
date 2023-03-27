@@ -1,7 +1,9 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
-import static org.junit.jupiter.api.Assertions.*;
-import fr.eseo.e3.poo.projet.blox.modele.Couleur;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,40 +12,40 @@ public class CoordonneesTest {
 	@Test
 	void testConstructeur() {
 		Coordonnees coord = new Coordonnees(3,4);
-		assertEquals(3,coord.getAbscisse(),"Abscisse doit être à 3");
-		assertEquals(4,coord.getOrdonnee(),"Ordonnee doit être à 4");
+		assertEquals(3,coord.getAbscisse(),"l'abscisse doit être à 3");
+		assertEquals(4,coord.getOrdonnee(),"l'ordonnee doit être à 4");
 	}
 	
 	@Test
-	void testSetteurAbscisse() {
+	void testSetAbscisse() {
 		Coordonnees coord = new Coordonnees(3,4);
-		assertEquals(3,coord.getAbscisse(),"Abscisse doit être à 3");
-		assertEquals(4,coord.getOrdonnee(),"Ordonnee doit être à 4");
+		assertEquals(3,coord.getAbscisse(),"l'bscisse doit être à 3");
+		assertEquals(4,coord.getOrdonnee(),"l'ordonnee doit être à 4");
 		coord.setAbscisse(6);
 		coord.setOrdonnee(7);
-		assertEquals(6,coord.getAbscisse(),"Abscisse doit être à 6");
+		assertEquals(6,coord.getAbscisse(),"l'abscisse doit être à 6");
 	}
 	
 	@Test
-	void testSetteurOrdonnee() {
+	void testSetOrdonnee() {
 		Coordonnees coord = new Coordonnees(3,4);
-		assertEquals(3,coord.getAbscisse(),"Abscisse doit être à 3");
-		assertEquals(4,coord.getOrdonnee(),"Ordonnee doit être à 4");
+		assertEquals(3,coord.getAbscisse(),"l'abscisse doit être à 3");
+		assertEquals(4,coord.getOrdonnee(),"l'ordonnee doit être à 4");
 		coord.setAbscisse(6);
 		coord.setOrdonnee(7);
-		assertEquals(7,coord.getOrdonnee(),"Ordonnee doit être à 7");
+		assertEquals(7,coord.getOrdonnee(),"l'ordonnee doit être à 7");
 	}
 	
 	@Test
 	void testToString() {
 		Coordonnees coord = new Coordonnees(3,4);
-		assertEquals("(3, 4)",coord.toString(),"To string doit donner (3, 4)");
+		assertEquals("(3, 4)",coord.toString(),"la méthode ToString() doit donner '(3, 4)'");
 	}
 	
 	@Test
 	void testEqualsFaux() {
 		Coordonnees coord = new Coordonnees(3,4);
-		assertFalse(coord.equals(),"pas égal");
+		assertFalse(coord.equals(),"Les coordonnees ne sont pas égales à null");
 	}
 	
 	@Test

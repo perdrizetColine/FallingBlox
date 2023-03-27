@@ -1,26 +1,26 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 import fr.eseo.e3.poo.projet.blox.modele.pieces.OPiece;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.IPiece;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class PuitsTest {
 
 	@Test
-	void testConstructeur1() {
+	void testConstructeurVide() {
 		Puits puits1 = new Puits();
 		assertEquals(10,puits1.getLargeur(),"la largeur");
 		assertEquals(20,puits1.getProfondeur(),"la profondeur");
 	}
 	
 	@Test
-	void testConstructeur2() {
+	void testConstructeurLargeurEtProfondeur() {
 		Puits puits2 = new Puits(12,19);
 		assertEquals(12,puits2.getLargeur(),"la largeur");
 		assertEquals(19,puits2.getProfondeur(),"la profondeur");

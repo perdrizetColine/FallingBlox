@@ -1,6 +1,7 @@
 package fr.eseo.e3.poo.projet.blox.modele.pieces;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class OPieceTest {
 	} 
 	
 	@Test
-	void testSetElement2() {
+	void testSetElementTailleListe() {
 		Coordonnees coord2 = new Coordonnees(6,5);
 		Couleur couleur2 = Couleur.ROUGE;
 		OPiece OPiece2 = new OPiece(coord2, couleur2);

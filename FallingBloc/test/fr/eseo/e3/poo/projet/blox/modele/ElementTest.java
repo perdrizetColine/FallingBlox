@@ -1,13 +1,15 @@
 package fr.eseo.e3.poo.projet.blox.modele;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 public class ElementTest {
 
 	@Test
-	void testConstructeur1() {
+	void testConstructeurVide() {
 		Coordonnees coord1 = new Coordonnees(5,6);
 		Element element1 = new Element(coord1);
 		assertEquals(coord1,element1.getCoordonnees(),"les coordonnees");
@@ -17,7 +19,7 @@ public class ElementTest {
 	}
 	
 	@Test
-	void testConstructeur2() {
+	void testConstructeurAbscisseOrdonnee() {
 		int abscisse = 2;
 		int ordonnee = 9;
 		Coordonnees coord2 = new Coordonnees(abscisse,ordonnee);
@@ -29,7 +31,7 @@ public class ElementTest {
 	}
 	
 	@Test
-	void TestConstructeur3() {
+	void TestConstructeurCoordonneesCouleur() {
 		Coordonnees coord3 = new Coordonnees(5,2);
 		Couleur couleur3 = Couleur.VIOLET;
 		Element element3 = new Element(coord3, couleur3);
@@ -40,7 +42,7 @@ public class ElementTest {
 	}
 	
 	@Test
-	void testConstructeur4() {
+	void testConstructeurAbscisseOrdonneeCouleur() {
 		int abscisse = 7;
 		int ordonnee = 6;
 		Coordonnees coord4 = new Coordonnees(abscisse,ordonnee);

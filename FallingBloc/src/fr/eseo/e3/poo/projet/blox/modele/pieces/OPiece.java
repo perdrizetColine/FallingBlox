@@ -1,5 +1,5 @@
 package fr.eseo.e3.poo.projet.blox.modele.pieces;
-import java.util.List;
+//import java.util.List;
 //import java.util.ArrayList;
 
 import fr.eseo.e3.poo.projet.blox.modele.Coordonnees;
