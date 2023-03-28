@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class CoordonneesTest {
 
-	@Test
+	@Test 
 	void testConstructeur() {
 		Coordonnees coord = new Coordonnees(3,4);
 		assertEquals(3,coord.getAbscisse(),"l'abscisse doit être à 3");

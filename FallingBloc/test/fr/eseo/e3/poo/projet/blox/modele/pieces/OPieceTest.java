@@ -14,45 +14,45 @@ import fr.eseo.e3.poo.projet.blox.modele.Element;
 public class OPieceTest {
 
 	@Test
-	void testConstructeur() {
-		Coordonnees coord1 = new Coordonnees(5,9);
-		Couleur couleur1 = Couleur.VERT;
-		OPiece OPiece1 = new OPiece(coord1, couleur1);
-		assertEquals(4,OPiece1.getElements().size(),"liste pleine");
+	void testConstructeur() { 
+		Coordonnees coord = new Coordonnees(5,9);
+		Couleur couleur = Couleur.VERT;
+		OPiece OPiece = new OPiece(coord, couleur);
+		assertEquals(4,OPiece.getElements().size(),"liste pleine");
 	}
 	
 	@Test
 	void testSetElements() {
-		Coordonnees coord2 = new Coordonnees(6,5);
-		Couleur couleur2 = Couleur.ROUGE;
-		OPiece OPiece2 = new OPiece(coord2, couleur2);
+		Coordonnees coord = new Coordonnees(6,5);
+		Couleur couleur = Couleur.ROUGE;
+		OPiece OPiece = new OPiece(coord, couleur);
 		
-		assertEquals(Couleur.ROUGE,OPiece2.getElements().get(0).getCouleur(),"couleur 1");
-		assertEquals(Couleur.ROUGE,OPiece2.getElements().get(1).getCouleur(),"couleur 2");
-		assertEquals(Couleur.ROUGE,OPiece2.getElements().get(2).getCouleur(),"couleur 3");
-		assertEquals(Couleur.ROUGE,OPiece2.getElements().get(3).getCouleur(),"couleur 4");
+		assertEquals(Couleur.ROUGE,OPiece.getElements().get(0).getCouleur(),"couleur 1");
+		assertEquals(Couleur.ROUGE,OPiece.getElements().get(1).getCouleur(),"couleur 2");
+		assertEquals(Couleur.ROUGE,OPiece.getElements().get(2).getCouleur(),"couleur 3");
+		assertEquals(Couleur.ROUGE,OPiece.getElements().get(3).getCouleur(),"couleur 4");
 		
-		assertEquals(coord2,OPiece2.getElements().get(0).getCoordonnees(),"coordonnes 1");
-		assertEquals(new Coordonnees(7,5),OPiece2.getElements().get(1).getCoordonnees(),"coordonnes 2");
-		assertEquals(new Coordonnees(6,4),OPiece2.getElements().get(2).getCoordonnees(),"coordonnes 2");
-		assertEquals(new Coordonnees(7,4),OPiece2.getElements().get(3).getCoordonnees(),"coordonnes 2");
+		assertEquals(coord,OPiece.getElements().get(0).getCoordonnees(),"coordonnes 1");
+		assertEquals(new Coordonnees(7,5),OPiece.getElements().get(1).getCoordonnees(),"coordonnes 2");
+		assertEquals(new Coordonnees(6,4),OPiece.getElements().get(2).getCoordonnees(),"coordonnes 2");
+		assertEquals(new Coordonnees(7,4),OPiece.getElements().get(3).getCoordonnees(),"coordonnes 2");
 	} 
 	
 	@Test
 	void testSetElementTailleListe() {
-		Coordonnees coord2 = new Coordonnees(6,5);
-		Couleur couleur2 = Couleur.ROUGE;
-		OPiece OPiece2 = new OPiece(coord2, couleur2);
-		assertEquals(4, OPiece2.getElements().size(),"la taille de la liste est incorecte");
+		Coordonnees coord = new Coordonnees(6,5);
+		Couleur couleur = Couleur.ROUGE;
+		OPiece OPiece = new OPiece(coord, couleur);
+		assertEquals(4, OPiece.getElements().size(),"la taille de la liste est incorecte");
 	}
 	
 	@Test
 	void testToString() {
-		Coordonnees coord3 = new Coordonnees(6,5);
-		Couleur couleur3 = Couleur.CYAN;
-		OPiece OPiece3 = new OPiece(coord3, couleur3);
+		Coordonnees coord = new Coordonnees(6,5);
+		Couleur couleur = Couleur.CYAN;
+		OPiece OPiece = new OPiece(coord, couleur);
 		String stringAttendu = "OPiece :\n	(6, 5) - CYAN\n	(7, 5) - CYAN\n	(6, 4) - CYAN\n	(7, 4) - CYAN\n";
-		assertEquals(stringAttendu,OPiece3.toString(),"to string");
+		assertEquals(stringAttendu,OPiece.toString(),"to string");
 	}
 	
 	@Test

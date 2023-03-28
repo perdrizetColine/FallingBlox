@@ -10,13 +10,16 @@ public class UsineDePiece {
 	public static final int ALEATOIRE_PIECE = 2;
 	public static final int CYCLIC = 1;
 	public static int modeDeFonctionnement = ALEATOIRE_PIECE;
+	private static int pp = 0;
+
 	
 	//Constructeur
 	private UsineDePiece() {
+		
 	}
 	
 	//Methodes
-	
+	 
 	public static void setMode(int mode) {
 		switch(mode) {
 		case 0:
@@ -30,11 +33,10 @@ public class UsineDePiece {
 			break;
 		}
 	}
-	static int pp = 0;
 	public static Piece genererPiece() {
 		//Coordonnees coordonnees = new Coordonnees(2,3);
-		Random randomObj2 = new Random();
-		int b =randomObj2.nextInt(1);
+		Random o = new Random();
+		int b =o.nextInt(5);
 		if(modeDeFonctionnement == ALEATOIRE_COMPLET) {
 			switch(b) {
 			case 0:
