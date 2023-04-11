@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
-public class PuitsTest {
+public class PuitsTest { 
  
 	@Test
 	void testConstructeurVide() {
@@ -117,8 +117,9 @@ public class PuitsTest {
 		IPiece newPI = new IPiece(coord,coul);
 		puits.setPieceSuivante(newPO);
 		puits.setPieceSuivante(newPI);
-		String supposed = "Puits : Dimension 10 x 20\nPiece Actuelle : "+ newPO.toString().replaceAll("[\n\r]$", "")  +"\nPiece Suivante : "+newPI.toString();
-																							//String.replace(newPO.toString().lastIndexOf("\n"),newPO.toString().lastIndexOf("\n")+1,"")
+		String supposed = "Puits : Dimension 10 x 20\nPiece Actuelle : "+ 
+		newPO.toString().replaceAll("[\n\r]$", "")  +"\nPiece Suivante : "+newPI.toString();
+	    //String.replace(newPO.toString().lastIndexOf("\n"),newPO.toString().lastIndexOf("\n")+1,"")
 		assertEquals(supposed, puits.toString(),"vghzd");
 	}
 	@Test

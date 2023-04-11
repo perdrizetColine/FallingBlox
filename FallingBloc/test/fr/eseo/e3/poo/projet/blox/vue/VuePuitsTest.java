@@ -13,7 +13,7 @@ public class VuePuitsTest {
 		Puits puits = new Puits();
 		VuePuits vp = new VuePuits(puits);
 		assertEquals(puits,vp.getPuits(),"le puits doit être celui initialisé");
-		assertEquals(50,vp.getTaille(),"la taille doit être celle par défaut");
+		assertEquals(12,vp.getTaille(),"la taille doit être celle par défaut");
 	}
 	
 	@Test

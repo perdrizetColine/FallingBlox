@@ -36,7 +36,7 @@ public class UsineDePieceTest {
 			assertEquals(IPiece.class, p.getClass(),"la piece doit être une Ipiece");
 		}else {
 			assertEquals(OPiece.class, p.getClass(),"la piece doit être une Opiece");
-		}
+		} 
 		Piece p2 = UsineDePiece.genererPiece();
 		if(p2.getClass()==IPiece.class) {
 			assertEquals(IPiece.class, p2.getClass(),"la piece doit être une Ipiece");
@@ -88,6 +88,18 @@ public class UsineDePieceTest {
 			assertEquals(IPiece.class, p2.getClass(),"la piece doit être une Ipiece");
 		}else {
 			assertEquals(OPiece.class, p2.getClass(),"la piece doit être une Opiece");
+		}
+		Piece p3 = UsineDePiece.genererPiece();
+		if(p3.getClass()==IPiece.class) {
+			assertEquals(IPiece.class, p3.getClass(),"la piece doit être une Ipiece");
+		}else {
+			assertEquals(OPiece.class, p3.getClass(),"la piece doit être une Opiece");
+		}
+		Piece p4 = UsineDePiece.genererPiece();
+		if(p4.getClass()==IPiece.class) {
+			assertEquals(IPiece.class, p4.getClass(),"la piece doit être une Ipiece");
+		}else {
+			assertEquals(OPiece.class, p4.getClass(),"la piece doit être une Opiece");
 		}
 	}
 }
