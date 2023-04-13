@@ -24,4 +24,5 @@ public class IPiece extends Piece {
 				+super.getElements().get(2).toString()
 				+"\n	"+super.getElements().get(3).toString()+"\n";
 	}
+		
 }

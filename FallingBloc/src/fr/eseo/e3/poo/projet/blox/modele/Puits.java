@@ -15,7 +15,6 @@ public class Puits {
 	private Piece pieceSuivante;
 	private PropertyChangeSupport pcs; 
 	
-	//ajout 
 	public int largeur;
 	public int profondeur;
 	
@@ -25,24 +24,20 @@ public class Puits {
 		this.pcs = new PropertyChangeSupport(this);
 	}
 	
-	public Puits ( int largeur, int profondeur) {
-		if (largeur<5) {
-			this.profondeur = profondeur;
-			throw new IllegalArgumentException("largeur trop petite");
-		}else if (largeur>15) {
-			this.profondeur = profondeur;
-			throw new IllegalArgumentException("largeur trop grande");
-		}else if (profondeur<15) {
-			this.largeur = largeur;
-			throw new IllegalArgumentException("profondeur trop petite");
-		}else if (profondeur>25) {
-			this.largeur = largeur;
-			throw new IllegalArgumentException("profondeur trop grande");
+	public Puits(int largeur, int profondeur) {
+		if(profondeur<15) {
+			throw new IllegalArgumentException("trop petite profondeur");
+		}else if(profondeur>25) {
+			throw new IllegalArgumentException("trop grande profondeur");
+		}else if(largeur<5) {
+			throw new IllegalArgumentException("trop petite largeur");
+		}else if(largeur>15) {
+			throw new IllegalArgumentException("trop grande largeur");
 		}else{
 			this.largeur = largeur;
 			this.profondeur = profondeur;
 		}
-		this.pcs = new PropertyChangeSupport(this);
+	this.pcs = new PropertyChangeSupport(this);
 	}
 		
 	public Piece getPieceActuelle() {
@@ -66,22 +61,13 @@ public class Puits {
 	}
 
 	public void setPieceSuivante(Piece pieceSuivante) {
-//		if("modification piece actuelle".equals(MODIFICATION_PIECE_ACTUELLE)) {
-//			pcs.firePropertyChange(MODIFICATION_PIECE_ACTUELLE, pieceActuelle, pieceSuivante);
-//		}
-//		else if("modification piece suivante".equals(MODIFICATION_PIECE_SUIVANTE)) {
-//			pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, pieceSuivante, pieceSuivante);
-//		}
-		
 		if(getPieceSuivante()==null) {
+			this.pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, null, pieceSuivante);
 		}else{
-			//3.3.10 ça marche pas 
-			//this.pcs.firePropertyChange(MODIFICATION_PIECE_ACTUELLE, this.pieceActuelle, getPieceSuivante());
 			this.pieceActuelle = getPieceSuivante();
 			this.pieceActuelle.setPosition(getLargeur()/2, -4);
+			this.pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, getPieceSuivante(), pieceSuivante);
 		}
-		//3.3.10 ça marche pas
-		//this.pcs.firePropertyChange(MODIFICATION_PIECE_SUIVANTE, this.pieceSuivante, pieceSuivante);
 		this.pieceSuivante = pieceSuivante;
 		
 	}

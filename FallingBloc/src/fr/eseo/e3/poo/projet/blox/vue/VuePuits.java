@@ -27,6 +27,8 @@ public class VuePuits extends JPanel implements PropertyChangeListener{
 				this.taille*this.puits.getProfondeur());
 		setPreferredSize(this.dimension);
 		setBackground(Color.WHITE);
+		puits.addPropertyChangeListener(this);
+
 	}
 	
 	public VuePuits (Puits puits, int taille) {
@@ -36,6 +38,8 @@ public class VuePuits extends JPanel implements PropertyChangeListener{
 				this.taille*this.puits.getProfondeur());
 		setPreferredSize(dimension);
 		setBackground(Color.WHITE);
+		puits.addPropertyChangeListener(this);
+
 }
 	
 	public Puits getPuits() {
@@ -56,14 +60,14 @@ public class VuePuits extends JPanel implements PropertyChangeListener{
 	
 	public void setPuits(Puits puits) {
 		this.puits = puits;
-		setPreferredSize(new Dimension(this.taille*this.puits.getLargeur()
-				,this.taille*this.puits.getProfondeur()));
+		setPreferredSize(new Dimension(getTaille()*getPuits().getLargeur(),
+				getTaille()*getPuits().getProfondeur()));
 	}
 	
 	public void setTaille (int taille) {
 		this.taille = taille;
-		setPreferredSize(new Dimension(this.taille*this.puits.getLargeur()
-				,this.taille*this.puits.getProfondeur()));
+		setPreferredSize(new Dimension(getTaille()*getPuits().getLargeur(),
+				getTaille()*getPuits().getProfondeur()));
 	}
 	
 	public void setDimension (Dimension dimension) {

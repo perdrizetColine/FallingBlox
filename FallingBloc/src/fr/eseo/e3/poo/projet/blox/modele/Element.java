@@ -50,4 +50,11 @@ public class Element {
 	public String toString() {
 		return getCoordonnees().toString()+" - "+getCouleur()+"";
 	}
+	public void deplacerDe(int deltaX, int deltaY) {
+		int ab = this.coordonnees.getAbscisse();
+		int or = this.coordonnees.getOrdonnee();
+		this.coordonnees.setAbscisse(ab+deltaX);
+		this.coordonnees.setOrdonnee(or+deltaY);
+		
+	}
 }

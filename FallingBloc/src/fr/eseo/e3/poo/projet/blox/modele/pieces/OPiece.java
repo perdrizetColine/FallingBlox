@@ -24,4 +24,6 @@ public class OPiece extends Piece {
 				+"\n	"+super.getElements().get(2).toString()
 				+"\n	"+super.getElements().get(3).toString()+"\n";
 	}
+	public void tourner(boolean sensHoraire) {
+	}
 }
