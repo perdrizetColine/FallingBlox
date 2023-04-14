@@ -5,41 +5,50 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.beans.PropertyChangeEvent;
-import  java.beans.PropertyChangeListener;
-
+import java.beans.PropertyChangeListener;
 import javax.swing.JPanel;
 
+import fr.eseo.e3.poo.projet.blox.controleur.PieceDeplacement;
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.modele.pieces.Piece;
 
 public class VuePuits extends JPanel implements PropertyChangeListener{
 	
-	public static final int TAILLE_PAR_DEFAUT = 10;
+	public static final int TAILLE_PAR_DEFAUT = 15;
 	private Puits puits;
-	int taille;
+	private int taille;
 	private Dimension dimension;
 	private VuePiece vuePiece;
+	private PieceDeplacement pieceDeplacement;
 		
 	public VuePuits (Puits puits) {
 		this.puits = puits;
 		this.taille = TAILLE_PAR_DEFAUT;
-		this.dimension = new Dimension(this.taille*this.puits.getLargeur(),
-				this.taille*this.puits.getProfondeur());
+		this.dimension = new Dimension(getTaille()*getPuits().getLargeur(),
+				getTaille()*getPuits().getProfondeur());
 		setPreferredSize(this.dimension);
 		setBackground(Color.WHITE);
-		puits.addPropertyChangeListener(this);
-
+		this.puits.addPropertyChangeListener(this);
+		this.pieceDeplacement = new PieceDeplacement(this);
+		this.addMouseMotionListener(pieceDeplacement);
+		this.addMouseListener(pieceDeplacement);
+		this.addMouseMotionListener(pieceDeplacement);
+		this.addMouseWheelListener(pieceDeplacement);
 	}
 	
 	public VuePuits (Puits puits, int taille) {
 		this.puits = puits;
 		this.taille = taille;
-		this.dimension = new Dimension(this.taille*this.puits.getLargeur(),
-				this.taille*this.puits.getProfondeur());
+		this.dimension = new Dimension(getTaille()*getPuits().getLargeur(),
+				getTaille()*getPuits().getProfondeur());
 		setPreferredSize(dimension);
 		setBackground(Color.WHITE);
 		puits.addPropertyChangeListener(this);
-
+		this.pieceDeplacement = new PieceDeplacement(this);
+		this.addMouseMotionListener(pieceDeplacement);
+		this.addMouseListener(pieceDeplacement);
+		this.addMouseMotionListener(pieceDeplacement);
+		this.addMouseWheelListener(pieceDeplacement);
 }
 	
 	public Puits getPuits() {
@@ -79,36 +88,83 @@ public class VuePuits extends JPanel implements PropertyChangeListener{
 	}
 	
 	protected void paintComponent ( Graphics g) {
+
 		//background blanc initialisé dans les constructeurs
-		
+
 		super.paintComponent(g);
-		
+
 		/* appel vers super pour remplir le fond du JPanel */
+
 		/*Le paramètre g est copie en utilisant la méthode copie()
+
 		* puis converti en instance de Graphics2D grâce à
+
 		* un transtypage (cast) explicite.*/
-		
+
 		Graphics2D g2D = (Graphics2D)g.create();
+
 		g2D.setColor(Color.LIGHT_GRAY);
-		
-		/* Nous utiliserons l'instance de Graphics2D*/		
-		
+
+		/* Nous utiliserons l'instance de Graphics2D*/
+
 		for (int i = 0; i<this.puits.getProfondeur();i++) {
-			g2D.drawLine(0,i*getTaille(), getTaille()*getPuits().getLargeur(), i*getTaille());
+
+		g2D.drawLine(0,i*getTaille(), getTaille()*getPuits().getLargeur(), i*getTaille());
+
 		}
+
 		for (int j = 0;j<this.puits.getLargeur(); j++) {
-			g2D.drawLine(j*getTaille(),0,j*getTaille(),getTaille()*getPuits().getProfondeur());
+
+		g2D.drawLine(j*getTaille(),0,j*getTaille(),getTaille()*getPuits().getProfondeur());
+
 		}
-		
+
 		if (this.vuePiece !=null) {
-			this.vuePiece.afficherPiece(g2D);
+
+		this.vuePiece.afficherPiece(g2D);
+
 		}
+
 		//A Graphics object cannot be used after dispose has been called.
+
 		/*Puis nous liberons la memoire*/
-		
+
 		g2D.dispose();
-		
-	}
+
+
+		}
+	
+//	protected void paintComponent ( Graphics g) {
+//		//background blanc initialisé dans les constructeurs
+//		
+//		super.paintComponent(g);
+//		
+//		/* appel vers super pour remplir le fond du JPanel */
+//		/*Le paramètre g est copie en utilisant la méthode copie()
+//		* puis converti en instance de Graphics2D grâce à
+//		* un transtypage (cast) explicite.*/
+//		
+//		Graphics2D g2D = (Graphics2D)g.create();
+//		g2D.setColor(Color.LIGHT_GRAY);
+//		
+//		/* Nous utiliserons l'instance de Graphics2D*/		
+//		
+//		for (int i = 0; i<this.puits.getProfondeur();i++) {
+//			g2D.drawLine(0,i*getTaille(), getTaille()*getPuits().getLargeur(), i*getTaille());
+//		}
+//		for (int j = 0;j<this.puits.getLargeur(); j++) {
+//			g2D.drawLine(j*getTaille(),0,j*getTaille(),getTaille()*getPuits().getProfondeur());
+//		}
+//		
+//		if (this.vuePiece !=null) {
+//			this.vuePiece.afficherPiece(g2D);
+//		}
+//		//A Graphics object cannot be used after dispose has been called.
+//		/*Puis nous liberons la memoire*/
+//		
+//		g2D.dispose();
+//		
+//	}
 	
 	public void propertyChange(PropertyChangeEvent event) {
 		Piece pieceAct = (Piece) event.getNewValue();

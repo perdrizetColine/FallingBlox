@@ -1,23 +1,23 @@
 package fr.eseo.e3.poo.projet.blox.controleur;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
 
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
 import fr.eseo.e3.poo.projet.blox.vue.VuePuits;
 
-public class PieceDeplacement implements MouseMotionListener{
+public class PieceDeplacement extends MouseAdapter{
 	 
 	private VuePuits vuePuits;
 	private Puits puits; 
-	//ajout d'une valeur pour la colonne par défaut
 	private int colonne = -1;
 	
-	public PieceDeplacement (VuePuits vuepuits) {
+	public PieceDeplacement (VuePuits vuePuits) {
 		this.vuePuits = vuePuits;
-		//initialiser puits avec le puit de vuePuits
 		this.puits = vuePuits.getPuits();
-		vuePuits.addMouseMotionListener(this);
+		this.vuePuits.addMouseMotionListener(this);
 	}
 	/*
 	public PieceDeplacement (Puits puits, VuePuits vuepuits) {
@@ -31,19 +31,14 @@ public class PieceDeplacement implements MouseMotionListener{
 	@Override
 	public void mouseMoved(MouseEvent event) {
 		if (this.puits.getPieceActuelle()!=null) {
-			//verifie le numero de la colonne du dessous du pointeur
-			int pointeur = event.getX()/this.vuePuits.getTaille();
-			//si colonne est appelé pour la premiere fois 
+			int p = event.getX()/this.vuePuits.getTaille();
 			if (this.colonne == -1) {
-				this.colonne = pointeur;
-			}else if (this.colonne!=pointeur) {
-				//faire le deplacement si on a pas d'exception
+				this.colonne = p;
+			}else if (this.colonne!=p) {
 				try {
-					this.puits.getPieceActuelle().deplacerDe(pointeur,0);
-					this.colonne = pointeur;
-				}catch (Exception e) {
-					//le deplacement lève un exception 
-					//donc on fait rien 
+					this.puits.getPieceActuelle().deplacerDe(p-this.colonne,0);
+					this.colonne = p;
+				}catch (Exception exception) {
 				}
 				
 			}
@@ -51,14 +46,25 @@ public class PieceDeplacement implements MouseMotionListener{
 	}
 	
 	@Override
-	public void mouseDragged (MouseEvent event) {}
+	public void mouseDragged (MouseEvent event) {
+		
+	}
 	
 	public void mouseEntered(MouseEvent event) {
 		//quelque chose
+		this.colonne=-1;
 	}
 	
-	public void mouseWheelMoved(MouseEvent event) {
-		//quelque chose
+//	public void mouseWheelMoved(MouseEvent event) {
+//		//quelque chose
+//	}
+	
+	public void mouseWheelMoved(MouseWheelEvent event) {
+		if(this.puits.getPieceActuelle()!=null) {
+			if(event.getWheelRotation()>0) {
+				this.puits.getPieceActuelle().deplacerDe(0, 1);
+			}
+		}
 	}
 
 }

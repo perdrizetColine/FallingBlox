@@ -69,13 +69,13 @@ abstract public class Piece {
 			int ab = getElements().get(0).getCoordonnees().getAbscisse();
 			int or = getElements().get(0).getCoordonnees().getOrdonnee();
 			//mettre la piece (tous les elements) à l'origine
-			for (Element elem : this.elements) {
+			for (Element elem : this.getElements()) {
 				elem.setCoordonnees(new Coordonnees(elem.getCoordonnees().getAbscisse()-ab,
 						elem.getCoordonnees().getOrdonnee()-or));
 			}
 			//faire la rotation de 90° dans le sens horaire
 			if (sensHoraire) {
-				for (Element el : this.elements) {
+				for (Element el : getElements()) {
 					//recuperer les coordonnees de l'element de la piece
 					int x = el.getCoordonnees().getAbscisse();
 					int y = el.getCoordonnees().getOrdonnee();
@@ -84,7 +84,7 @@ abstract public class Piece {
 				}
 			//faire la rotation de 90° vers la gauche
 			}else {
-				for (Element el : this.elements) {
+				for (Element el : getElements()) {
 					//recuperer les coordonnees de l'element de la piece
 					int x = el.getCoordonnees().getAbscisse();
 					int y = el.getCoordonnees().getOrdonnee();
@@ -93,12 +93,10 @@ abstract public class Piece {
 				}
 			}
 			//remettre la piece (tous les elements) a leur place
-			for (Element el : this.elements) {
+			for (Element el : getElements()) {
 				el.setCoordonnees(new Coordonnees(el.getCoordonnees().getAbscisse()+ab,
 						el.getCoordonnees().getOrdonnee()+or));
 			}
-			
-			
 		}
 	}
 }

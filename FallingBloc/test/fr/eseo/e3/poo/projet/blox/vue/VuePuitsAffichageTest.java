@@ -45,7 +45,7 @@ public class VuePuitsAffichageTest {
 	private void testUsinePiece() {
 		JFrame jframe = new JFrame("Test avec vuepiece");
 		Puits puits = new Puits();
-		VuePuits vuepuits = new VuePuits(puits);
+		VuePuits vuepuits = new VuePuits(puits,50);
 		UsineDePiece.setMode(1);
 		Piece piece = UsineDePiece.genererPiece();
 		puits.setPieceSuivante(piece);

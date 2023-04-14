@@ -117,14 +117,7 @@ public class Puits {
 	
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		this.pcs.removePropertyChangeListener(listener);
-	}
-	
-	
-
-	
-
-	
-	
+	}	
 }
 
 //package fr.eseo.e3.poo.projet.blox.modele;
