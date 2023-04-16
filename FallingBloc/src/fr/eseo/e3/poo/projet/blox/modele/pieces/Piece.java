@@ -62,40 +62,30 @@ abstract public class Piece {
 		}
 	}
 	
-	public void tourner(boolean sensHoraire) {
+	public void tourner(boolean sensHoraire) { 
 		if (this.getClass()==IPiece.class) {
-			//on prend les coordonnees de notre element central pour pouvoir mettre
-			//la piece à l'origine
-			int ab = getElements().get(0).getCoordonnees().getAbscisse();
-			int or = getElements().get(0).getCoordonnees().getOrdonnee();
-			//mettre la piece (tous les elements) à l'origine
+			int a = getElements().get(0).getCoordonnees().getAbscisse();//abscisse de départ
+			int o = getElements().get(0).getCoordonnees().getOrdonnee();//ordonnée de départ
 			for (Element elem : this.getElements()) {
-				elem.setCoordonnees(new Coordonnees(elem.getCoordonnees().getAbscisse()-ab,
-						elem.getCoordonnees().getOrdonnee()-or));
+				elem.setCoordonnees(new Coordonnees(elem.getCoordonnees().getAbscisse()-a,
+													elem.getCoordonnees().getOrdonnee()-o));
 			}
-			//faire la rotation de 90° dans le sens horaire
-			if (sensHoraire) {
+			if (sensHoraire) {//vers la droite
+				for (Element elem : getElements()) {
+					int x = elem.getCoordonnees().getAbscisse();
+					int y = elem.getCoordonnees().getOrdonnee();
+					elem.setCoordonnees(new Coordonnees(-y,x)); //on change coordonées nouvelles abscisse et ordonnée
+				}
+			}else { //vers la gauche
 				for (Element el : getElements()) {
-					//recuperer les coordonnees de l'element de la piece
 					int x = el.getCoordonnees().getAbscisse();
 					int y = el.getCoordonnees().getOrdonnee();
-					//faire tourner
-					el.setCoordonnees(new Coordonnees(-y,x));
-				}
-			//faire la rotation de 90° vers la gauche
-			}else {
-				for (Element el : getElements()) {
-					//recuperer les coordonnees de l'element de la piece
-					int x = el.getCoordonnees().getAbscisse();
-					int y = el.getCoordonnees().getOrdonnee();
-					//faire tourner
-					el.setCoordonnees(new Coordonnees(y,-x));
+					el.setCoordonnees(new Coordonnees(y,-x)); //on change coordonées nouvelles abscisse et ordonnée
 				}
 			}
-			//remettre la piece (tous les elements) a leur place
-			for (Element el : getElements()) {
-				el.setCoordonnees(new Coordonnees(el.getCoordonnees().getAbscisse()+ab,
-						el.getCoordonnees().getOrdonnee()+or));
+			for (Element elem : getElements()) {
+				elem.setCoordonnees(new Coordonnees(elem.getCoordonnees().getAbscisse()+a,
+													elem.getCoordonnees().getOrdonnee()+o));
 			}
 		}
 	}

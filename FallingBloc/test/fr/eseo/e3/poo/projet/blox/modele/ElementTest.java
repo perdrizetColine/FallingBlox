@@ -1,9 +1,11 @@
 package fr.eseo.e3.poo.projet.blox.modele;
  
-//import fr.eseo.e3.poo.projet.blox.modele.Couleur;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+//import fr.eseo.e3.poo.projet.blox.modele.Couleur;
+
 
 import org.junit.jupiter.api.Test;
 

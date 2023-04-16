@@ -2,7 +2,7 @@ package fr.eseo.e3.poo.projet.blox.controleur;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+//import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 
 import fr.eseo.e3.poo.projet.blox.modele.Puits;
